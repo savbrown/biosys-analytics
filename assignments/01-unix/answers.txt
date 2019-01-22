@@ -1,0 +1,104 @@
+[sbrown10@login2 sbrown10]$ cd /rsgrps/bh_class/sbrown10
+[sbrown10@login2 sbrown10]$ git clone git@github.com:savbrown/biosys-analytics.git
+Initialized empty Git repository in /rsgrps/bh_class/sbrown10/biosys-analytics/.git/
+remote: Enumerating objects: 246, done.
+remote: Total 246 (delta 0), reused 0 (delta 0), pack-reused 246
+Receiving objects: 100% (246/246), 1.14 MiB | 1.67 MiB/s, done.
+Resolving deltas: 100% (23/23), done.
+[sbrown10@login2 sbrown10]$ mkdir files
+mkdir: cannot create directory `files': File exists
+[sbrown10@login2 sbrown10]$ touch answers.txt
+[sbrown10@login2 sbrown10]$ cd files
+[sbrown10@login2 files]$ wget https://www.constitution.org/usdeclar.txt
+--2019-01-22 10:04:44--  https://www.constitution.org/usdeclar.txt
+Resolving www.constitution.org... 54.153.63.33, 52.8.181.78, 52.52.40.206, ...
+Connecting to www.constitution.org|54.153.63.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/plain]
+Saving to: “usdeclar.txt”
+
+    [ <=>                              ] 8,685       --.-K/s   in 0s      
+
+2019-01-22 10:04:44 (40.6 MB/s) - “usdeclar.txt” saved [8685]
+
+[sbrown10@login2 files]$  wget https://www.usconstitution.net/const.txt
+--2019-01-22 10:04:57--  https://www.usconstitution.net/const.txt
+Resolving www.usconstitution.net... 52.52.40.206
+Connecting to www.usconstitution.net|52.52.40.206|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/plain]
+Saving to: “const.txt”
+
+    [ <=>                              ] 45,119      --.-K/s   in 0.03s   
+
+2019-01-22 10:04:57 (1.49 MB/s) - “const.txt” saved [45119]
+
+[sbrown10@login2 files]$ wget https://www.gutenberg.org/files/25344/25344-0.txt -O scarlet.txt
+--2019-01-22 10:05:08--  https://www.gutenberg.org/files/25344/25344-0.txt
+Resolving www.gutenberg.org... 152.19.134.47, 2610:28:3090:3000:0:bad:cafe:47
+Connecting to www.gutenberg.org|152.19.134.47|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 525464 (513K) [text/plain]
+Saving to: “scarlet.txt”
+
+100%[=================================>] 525,464     1.02M/s   in 0.5s    
+
+2019-01-22 10:05:09 (1.02 MB/s) - “scarlet.txt” saved [525464/525464]
+
+[sbrown10@login2 files]$ ls -l
+total 584
+-rw-r--r-- 1 sbrown10 bh_class  45119 Jan 18 11:58 const.txt
+-rw-r--r-- 1 sbrown10 bh_class 525464 Jan 23  2015 scarlet.txt
+-rw-r--r-- 1 sbrown10 bh_class   8685 Jan 18 11:58 usdeclar.txt
+[sbrown10@login2 files]$ wc -l usdeclar.txt
+176 usdeclar.txt
+[sbrown10@login2 files]$ wc -l const.txt
+872 const.txt
+[sbrown10@login2 files]$ wc -l scarlet.txt
+9120 scarlet.txt
+[sbrown10@login2 files]$ find . -type f -size +50k
+./scarlet.txt
+[sbrown10@login2 files]$ file const.txt
+const.txt: ASCII English text
+[sbrown10@login2 files]$ md5sum const.txt
+f66a8165c621d48bac2216b2f31e8742  const.txt
+[sbrown10@login2 files]$ md5sum *.txt
+f66a8165c621d48bac2216b2f31e8742  const.txt
+4958553be1483e4cbd615ce5fa73f6ab  scarlet.txt
+7f54939b30ae7b6d45d473a4c82a41b0  usdeclar.txt
+[sbrown10@login2 files]$ df
+Filesystem               1K-blocks          Used    Available Use% Mounted on
+/dev/sda2                944785812      33663468    863123268   4% /
+none                      98884376            24     98884352   1% /dev/shm
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs1/rsgrps
+                     1543570980864 1199921642496 343649338368  78% /rsgrps
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs2/pbs
+                       35970351104    6876830720  29093520384  20% /pbs
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs2/Bright_cm_shared
+                       35970351104    6876830720  29093520384  20% /cm/shared
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs1/bio5
+                        4294967296     410201088   3884766208  10% /bio5
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs2/unsupported
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs2/unsupported
+                       35970351104    6876830720  29093520384  20% /unsupported
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs3/extra
+                      540897443840   47203576832 493693867008   9% /extra
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs3/xdisk
+                       10737418240             0  10737418240   0% /xdisk
+hpc-nfs0-10g.hpc.arizona.edu:/gsfs2/home
+                       35970351104    6876830720  29093520384  20% /home
+[sbrown10@login2 files]$ grep -R --include='*.txt' -ioc "judge"
+scarlet.txt:15
+const.txt:5
+usdeclar.txt:2
+[sbrown10@login2 files]$ grep -l human *.txt
+scarlet.txt
+usdeclar.txt
+[sbrown10@login2 files]$ grep -c "scarlet" scarlet.txt 
+107
+[sbrown10@login2 files]$ head -n 15 *.txt >foo
+[sbrown10@login2 files]$ wc -l foo
+50 foo
+[sbrown10@login2 files]$ rm foo
+[sbrown10@login2 files]$ history > cmds
+
