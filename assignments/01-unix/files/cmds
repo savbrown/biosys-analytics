@@ -1,0 +1,132 @@
+    1  cd /rsgrps/bh_class
+    2  ls
+    3  mkdir sbrown10
+    4  cd
+    5  cd .ssh
+    6  cat id_rsa.pub
+    7  cd
+    8  cd .ssh
+    9  cat id_rsa.pub
+   10  cd
+   11  cd .ssh
+   12  cat id_rsa.pub
+   13  sbrown10 _rsa.pub
+   14  ls ~al ~/.ssh
+   15  menuon
+   16  hostname
+   17  menu on
+   18  menuon
+   19  ls
+   20  alias ls='ls --color=auto' 2>/dev/null
+   21  ls
+   22  whoami
+   23  we
+   24  w
+   25  we
+   26  w
+   27  man
+   28  manls
+   29  man ls
+   30  ls -l
+   31  ls
+   32  echo
+   33  echo hello
+   34  echo I want to go to bed (
+   35  echo I want to go to bed
+   36  cowsay hello
+   37  env
+   38  echo $USER
+   39  echo user
+   40  ssh
+   41  which ssh
+   42  touch foo
+   43  pwd
+   44  ls
+   45  ls -l
+   46  ls -lh
+   47  rm foo
+   48  ls
+   49  man find
+   50  find --help
+   51  touch foo
+   52  ls
+   53  ls -F
+   54  pwd
+   55  cd
+   56  top
+   57  ps ~fu $USER
+   58  ps -fu $USER
+   59  bc
+   60  w
+   61  w > who
+   62  ls -lh who
+   63  cat < who
+   64  cat < who | head
+   65  tree
+   66  echo $PATH
+   67  tree
+   68  ls /rsgrps/bh_class/bin
+   69  PATH=/rsgrps/bh_class/bin:$PATH
+   70  tree
+   71  Python --version
+   72  wc-c
+   73  wc-m
+   74  env
+   75  wc
+   76  cat > foo
+   77  echo $PATH
+   78  PATH=/foo:$PATH
+   79  echo $PATH
+   80  ls
+   81  ls -a
+   82  cd ~/.ssh
+   83  ssh keygen
+   84  ssh-keygen
+   85  cat~/.ssh/id_rsa.pub
+   86  cd .ssh
+   87  cd
+   88  cd .ssh
+   89  ssh-keygen
+   90  cat ~/.ssh/id_rsa.pub
+   91  ssh <sbrown10>@hpc.arizona.edu
+   92  ssh sbrown10@hpc.arizona.edu
+   93  mkdir files
+   94  wget -p files/https://www.constitution.org/usdeclar.txt
+   95  find files
+   96  file files
+   97  wget files/https://www.constitution.org/usdeclar.txt
+   98  wget https://www.constitution.org/usdeclar.txt
+   99  mkdir files
+  100  wget files/https://www.constitution.org/usdeclar.txt
+  101* wget -P /files/https://www.constitution.org/usdeclar.txt
+  102  wget https://www.constitution.org/usdeclar.txt
+  103  mkdir files
+  104  wget https://www.constitution.org/usdeclar.txt
+  105  wget https://www.usconstitution.net/const.txt
+  106  wget https://www.gutenberg.org/files/25344/25344-0.txt -O scarlet.txt
+  107  ls
+  108  wc -l /dir/usdeclar.txt
+  109  wc -l /files/usdeclar.txt
+  110  wc -l s/usdeclar.txt
+  111  wc -l usdeclar.txt
+  112  wc -l const.txt
+  113  wc -l scarlet.txt
+  114  find . -type f -size +50k
+  115  file const.txt
+  116  md5sum -c files
+  117  md5sum files
+  118  md5sum const.txt
+  119  md5sum *.txt
+  120  df
+  121  grep -ioc "judge"
+  122  grep -R --include='*.txt'  -ioc "judge"
+  123  grep -io "judge" annuaire | wc -l
+  124  grep -l human *.txt
+  125  grep -c "scarlet" scarlet.txt
+  126  head n15 *.txt > foo
+  127  head n 15 *.txt > foo
+  128  head- n 15 *.txt > foo
+  129  head -n 15 *.txt > foo
+  130  wc -l foo
+  131  rm foo
+  132  history > cmds
