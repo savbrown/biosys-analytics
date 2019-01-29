@@ -9,7 +9,7 @@ fi
 
 
 if [[ ! -f "$1" ]]; then
-    echo "$1 is NOT a file"
+    echo "$1 is not a file"
     exit 1
 fi
 
