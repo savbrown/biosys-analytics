@@ -2,6 +2,7 @@
 
 FILE="/rsgrps/bh_class/sbrown10/biosys-analytics/assignments/02-bash-scripting/$1"
 
+
 if [[ $# -eq 0 ]]; then
     echo "Usage: cat-n.sh FILE"
     exit 1
