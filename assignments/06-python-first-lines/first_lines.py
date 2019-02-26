@@ -17,7 +17,7 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument(
-        'directory',metavar='DIR', nargs='+', help='Directory File Name')
+        'directory', type=str, metavar='DIR', nargs='+', help='Directory File Name')
 
     parser.add_argument(
         '-w',
@@ -25,7 +25,7 @@ def get_args():
         help='integer argument for the width',
         metavar='int',
         type=int,
-        default=0)
+        default=50)
 
 
     return parser.parse_args()
@@ -54,17 +54,19 @@ def main():
         if not os.path.isdir(dir_name):
             die('"{}" is not a directory'.format(dir_name))         
 
-    #file = sys.argv[1]
-    for filename in os.listdir(dirs):
-     with open(filename,'r') as f:   
-      first_line = f.readline()    
-      print(first_line)
-    
-  
-#    with open(file) as fh:
- #    lines = fh.readlines()
-  #   for line in lines:
-   #   print(line, end='')
+
+    for file in os.listdir(dirs):
+     path = os.path.join(dirs,file)
+     line = open(path).readline().rstrip()
+     dir_dict[line] = file
+
+    for line, file in sorted(dir_dict.items()):
+     lines = len(line)
+     files = len(file)
+     period = '.'*line_width
+
+    print('{} {} {}'.format(line, period, file))
+
 
 #-----------------------------------------------
 if __name__ == '__main__':
